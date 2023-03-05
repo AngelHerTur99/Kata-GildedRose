@@ -58,5 +58,6 @@ class ConjuredUdater(NormalItem):
     def update_quality(self):
         # The quality will decrease by 2 whenever the quality is greater than 0, since the items can never go below that.
         self.quality -= 2 if self.quality > 0 else 0
+        # if sell in days have passed and quality is greater than 0, decrease quality twice 
         self.quality -= 2 if self.sell_in < 0 and self.quality > 0 else 0
         self.sell_in -= 1
