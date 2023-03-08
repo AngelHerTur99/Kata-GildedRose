@@ -23,6 +23,12 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEqual(-1, items[0].sell_in)
         self.assertEqual(7, items[0].quality)
+        # Testing one more day, changing the quality to prove that it cannot be negative.
+        items[0].quality = 0
+        gilded_rose.update_quality()
+        self.assertEqual(-2, items[0].sell_in)
+        self.assertEqual(0, items[0].quality)
+
 
 
     def test_conjured(self):

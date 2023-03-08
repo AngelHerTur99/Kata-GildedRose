@@ -23,8 +23,8 @@ class NormalItem(object):
 
     def update_quality(self):
         # When the quality is greater than 0, it decreases by 2 or 1, depending on whether the sell-in value is less than or equal to 0
-        if self.quality > 0: 
-            self.quality -= 2 if self.sell_in <= 0 else 1
+        self.quality -= 2 if self.sell_in <= 0 else 1
+        self.quality = 0 if self.quality < 0 else self.quality
         self.sell_in -= 1
 
 class AgedBrieUpdater(NormalItem):
